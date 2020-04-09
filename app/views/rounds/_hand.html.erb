@@ -4,10 +4,7 @@
 
     <% @hand.each_with_index do |card_player, i| %>
       <% card = card_player.card %>
-      <%= content_tag :div,
-        class: 'card',
-        style: horizontal_hand_style(i) do
-      %>
+      <div class="card">
         <div class="card-body">
           <%= card.text %>
 
@@ -34,7 +31,7 @@
           <% end %>
         </div>
 
-        <% if card_player == @hand.last && @round.playing_black_card? && @submission.blank? %>
+        <% if card_player == @round.playing_black_card? && @submission.blank? %>
           <div class="card-footer">
             <%= link_to 'Play this card',
               play_card_game_round_path(@game, card_id: card),
@@ -43,7 +40,7 @@
             %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>
