@@ -6,7 +6,7 @@
       <% card = card_player.card %>
       <%= content_tag :div,
         class: 'card',
-        style: spread_hand_style(card, i, card_count) do
+        style: horizontal_hand_style(card, i, card_count) do
       %>
         <div class="card-body">
           <%= card.text %>
