@@ -17,7 +17,7 @@ describe 'Basic game' do
         expect(page).to have_content "Hey, you're the Card Czar this round."
 
         click_button 'Pick a black card'
-        click_button 'Play this card'
+        first('Play this card').click_link
       end
 
       game = Game.first
@@ -32,7 +32,7 @@ describe 'Basic game' do
         expect(page).to have_content black_card.text
 
         click_link '→'
-        click_link 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_3') do
@@ -44,7 +44,7 @@ describe 'Basic game' do
         expect(page).to have_content black_card.text
 
         click_link '←'
-        click_link 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_1') do
@@ -70,7 +70,7 @@ describe 'Basic game' do
         click_button "I'm ready"
         click_button 'Pick a black card'
         click_link 'skip this card' # Robin is the worst, so of course he skips cards
-        click_button 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_1') do
@@ -100,17 +100,17 @@ describe 'Basic game' do
 
         click_button "I'm ready"
         click_button 'Pick a black card'
-        click_button 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_1') do
         refresh
-        click_link 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_2') do
         refresh
-        click_link 'Play this card'
+        first('Play this card').click_link
       end
 
       Capybara.using_session('player_3') do
@@ -130,7 +130,7 @@ describe 'Basic game' do
 
         click_button "I'm ready"
         click_button 'Pick a black card'
-        click_button 'Play this card'
+        first('Play this card').click_link
       end
     end
   end
