@@ -31,7 +31,7 @@
           <% end %>
         </div>
 
-        <% if card_player == @round.playing_black_card? && @submission.blank? %>
+        <% if @round.playing_black_card? && @submission.blank? %>
           <div class="card-footer">
             <%= link_to 'Play this card',
               play_card_game_round_path(@game, card_id: card),
