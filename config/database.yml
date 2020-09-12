@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: cards_against_humanity_production
-  username: cards_against_humanity
-  password: <%= ENV['CARDS_AGAINST_HUMANITY_DATABASE_PASSWORD'] %>
+  database: <%= ENV.fetch('CARDS_AGAINST_HUMANITY_DATABASE') %>
+  username: <%= ENV.fetch('CARDS_AGAINST_HUMANITY_DATABASE_USERNAME') %>
+  password: <%= ENV.fetch('CARDS_AGAINST_HUMANITY_DATABASE_PASSWORD') %>
